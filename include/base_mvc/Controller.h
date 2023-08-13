@@ -13,14 +13,14 @@
 
 #include <string>
 namespace Controller{
-/// Enum class with all types of shapes for document
+
 enum class Shapes {
     Circle,
     Rectangle,
     TextBox,
 };
 
-/// DocumentController accepts input and converts it to commands for the model or view.
+
 class DocumentController {
   public:
     DocumentController(Model::DocumentModel &model, View::DocumentView &view) : model_{model}, view_{view} {}
