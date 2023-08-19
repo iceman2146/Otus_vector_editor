@@ -18,9 +18,11 @@ int main() {
     controller.clear();
 
     Storage storage;
-    controller.load(&storage, "filename: funny.svg");
-    auto rect_id = controller.addShape(Controller::Shapes::Rectangle, "x=100;y=10;width=140;height=30");
-    auto circle_id = controller.addShape(Controller::Shapes::Circle, "x=10;y=5;radius=12");
+    controller.load(&storage, "filename: File.svg");
+    auto rect_id = controller.addShape(Controller::Shapes::Rectangle, "x=20;y=5;width=100;height=50");
+    std::cout << "Serialized data of Rectangle: " << controller.getShape(rect_id) << '\n';
+
+    auto circle_id = controller.addShape(Controller::Shapes::Circle, "x=4;y=2;radius=6");
     controller.removeShape(rect_id);
 
     std::cout << "Serialized data of Circle: " << controller.getShape(circle_id) << '\n';

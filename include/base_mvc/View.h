@@ -1,22 +1,22 @@
 #pragma once
 #include "Model.h"
 #include <memory>
-namespace View{
+namespace View {
 
 class DocumentView {
-  public:
+public:
+  DocumentView(const Model::DocumentModel &model) : model_{model} {}
 
-    DocumentView(const Model::DocumentModel &model) : model_{model} {}
-
-    void draw() {
-        auto iters = model_.getData();
-        for (auto iter = iters.first; iter != iters.second; ++iter) {
-            Model::DocumentModel::id_type id;
-            std::string data;
-            std::tie(id, data) = (*iter);
-        }
+  void draw() {
+    auto iters = model_.getData();
+    for (auto iter = iters.first; iter != iters.second; ++iter) {
+      Model::DocumentModel::id_type id;
+      std::string data;
+      std::tie(id, data) = (*iter);
     }
-  private:
+  }
+
+private:
   const Model::DocumentModel &model_;
 };
-};
+}; // namespace View

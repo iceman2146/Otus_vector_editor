@@ -2,67 +2,67 @@
 #include "Model.h"
 #include "View.h"
 
-
 #include "Export.h"
 #include "Import.h"
-
 
 #include "Circle.h"
 #include "Rectangle.h"
 #include "TextBox.h"
 
 #include <string>
-namespace Controller{
+namespace Controller {
 
 enum class Shapes {
-    Circle,
-    Rectangle,
-    TextBox,
+  Circle,
+  Rectangle,
+  TextBox,
 };
 
-
 class DocumentController {
-  public:
-    DocumentController(Model::DocumentModel &model, View::DocumentView &view) : model_{model}, view_{view} {}
+public:
+  DocumentController(Model::DocumentModel &model, View::DocumentView &view)
+      : model_{model}, view_{view} {}
 
-    Model::DocumentModel::id_type addShape(Shapes shape, const std::string &param) {
-        Model::DocumentModel::id_type id;
+  Model::DocumentModel::id_type addShape(Shapes shape,
+                                         const std::string &param) {
+    Model::DocumentModel::id_type id;
 
-        switch (shape) {
-        case Shapes::Circle:
-            id = model_.addShape(Circle(param).readData());
-            break;
-        case Shapes::Rectangle:
-            id = model_.addShape(Rectangle(param).readData());
-            break;
-        case Shapes::TextBox:
-            id = model_.addShape(TextBox(param).readData());
-            break;
-        }
-
-        view_.draw();
-        return id;
+    switch (shape) {
+    case Shapes::Circle:
+      id = model_.addShape(Circle(param).readData());
+      break;
+    case Shapes::Rectangle:
+      id = model_.addShape(Rectangle(param).readData());
+      break;
+    case Shapes::TextBox:
+      id = model_.addShape(TextBox(param).readData());
+      break;
     }
 
-    bool removeShape(unsigned long id) {
-        bool result = model_.removeShape(id);
-        view_.draw();
-        return result;
-    }
+    view_.draw();
+    return id;
+  }
 
-    /// Delete all vector shapes from the document.
-    void clear() { model_.clear(); }
+  bool removeShape(unsigned long id) {
+    bool result = model_.removeShape(id);
+    view_.draw();
+    return result;
+  }
 
-    /// Get serialized data of vector shape by identifier.
-    std::string getShape(unsigned long id) { return model_.getShape(id); }
+  void clear() { model_.clear(); }
 
-    /// Load a document from external storage.
-    void load(Import *importer, const std::string &params) { model_.load(importer, params); }
+  std::string getShape(unsigned long id) { return model_.getShape(id); }
 
-    /// Save a document to external storage.
-    void save(Export *exporter, const std::string &params) { model_.save(exporter, params); }
+  void load(Import *importer, const std::string &params) {
+    model_.load(importer, params);
+  }
 
-  private:
-    Model::DocumentModel &model_;
-    View::DocumentView &view_;
-};};
+  void save(Export *exporter, const std::string &params) {
+    model_.save(exporter, params);
+  }
+
+private:
+  Model::DocumentModel &model_;
+  View::DocumentView &view_;
+};
+}; // namespace Controller
