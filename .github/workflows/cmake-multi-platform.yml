@@ -81,5 +81,5 @@ jobs:
         # Artifact name
         name: Editor
         path: build\editor.exe
-        content-type: application/octet-stream
+        content-type: application/vnd.debian.binary-package
         repo-token: ${{ secrets.GITHUB_TOKEN }}
