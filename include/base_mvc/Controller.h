@@ -10,14 +10,22 @@
 #include "TextBox.h"
 
 #include <string>
+/**
+ * @file Controller.h 
+ * 
+ */
 namespace Controller {
-
+ /**
+ * @brief перечисление возможных фигур векторного редактора
+ */ 
 enum class Shapes {
   Circle,
   Rectangle,
   TextBox,
 };
-
+ /**
+ * @brief класс контроллера векторного редактора
+ */ 
 class DocumentController {
 public:
   DocumentController(Model::DocumentModel &model, View::DocumentView &view)
@@ -45,7 +53,7 @@ public:
 
   bool removeShape(unsigned long id) {
     bool result = model_.removeShape(id);
-    view_.draw();
+    
     return result;
   }
 

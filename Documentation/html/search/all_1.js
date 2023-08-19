@@ -1,6 +1,8 @@
 var searchData=
 [
-  ['documentcontroller_0',['DocumentController',['../class_controller_1_1_document_controller.html',1,'Controller']]],
-  ['documentmodel_1',['DocumentModel',['../class_model_1_1_document_model.html',1,'Model']]],
-  ['documentview_2',['DocumentView',['../class_view_1_1_document_view.html',1,'View']]]
+  ['circle_0',['Circle',['../struct_circle.html',1,'']]],
+  ['circle_2ecpp_1',['Circle.cpp',['../_circle_8cpp.html',1,'']]],
+  ['circle_2eh_2',['Circle.h',['../_circle_8h.html',1,'']]],
+  ['clear_3',['clear',['../class_model_1_1_document_model.html#a51debb6aa6fde6a3f35f86f80e854aa4',1,'Model::DocumentModel']]],
+  ['controller_2eh_4',['Controller.h',['../_controller_8h.html',1,'']]]
 ];

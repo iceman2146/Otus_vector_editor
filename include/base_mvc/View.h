@@ -1,8 +1,14 @@
 #pragma once
 #include "Model.h"
 #include <memory>
+/**
+ * @file View.h 
+ * 
+ */
 namespace View {
-
+ /**
+ * @brief класс отображения векторного редактора
+ */ 
 class DocumentView {
 public:
   DocumentView(const Model::DocumentModel &model) : model_{model} {}
