@@ -79,6 +79,7 @@ jobs:
       uses: actions/upload-release-asset@v1
       with:
         # Artifact name
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
         asset_name: Editor
         asset_path: build\editor.exe
         asset_content_type: application/vnd.debian.binary-package
