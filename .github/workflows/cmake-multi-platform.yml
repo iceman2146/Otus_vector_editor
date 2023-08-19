@@ -81,5 +81,5 @@ jobs:
         # Artifact name
         asset_name: Editor
         asset_path: build\editor.exe
-        content-type: application/vnd.debian.binary-package
-        asset_content_type: ${{ secrets.GITHUB_TOKEN }}
+        asset_content_type: application/vnd.debian.binary-package
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
