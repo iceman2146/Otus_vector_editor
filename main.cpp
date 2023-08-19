@@ -4,6 +4,7 @@
 #include "Export_Import.h"
 #include <iostream>
 #include <string>
+#include "ver.h"
 /**
  * @file main.cpp 
  * 
@@ -18,6 +19,7 @@
 
 
 int main() {
+    std::cout<<"VERSION: "<<version()<<std::endl;
     Model::DocumentModel model;
     View::DocumentView view(model);
     Controller::DocumentController controller(model, view);

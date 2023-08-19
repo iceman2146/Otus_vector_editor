@@ -1,0 +1,5 @@
+# @see https://github.com/google/googletest/blob/master/googletest/README.md
+# Incorporating Into An Existing CMake Project
+
+cmake_minimum_required(VERSION 3.26)
+
