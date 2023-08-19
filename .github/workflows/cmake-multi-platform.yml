@@ -73,14 +73,16 @@ jobs:
       # Execute tests defined by the CMake configuration. Note that --build-config is needed because the default Windows generator is a multi-config generator (Visual Studio generator).
       # See https://cmake.org/cmake/help/latest/manual/ctest.1.html for more detail
       run: ctest --build-config ${{ matrix.build_type }}
-    - name: Upload to Release Action
-      id: upload-release-asset
-      uses: actions/upload-release-asset@v1
-      env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+    - name: Simple Upload to Release
+      # You may pin to the exact commit or the version.
+      # uses: Guerra24/upload-to-release@933304c241627d9260fc449fa504becb04f365a3
+      uses: Guerra24/upload-to-release@v1.0.0
       with:
         # Artifact name
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_name: Editor
-        asset_path: ./editor.deb
-        asset_content_type: application/vnd.debian.binary-package
+        name: editor
+        # Path to the file to upload
+        path: ./build/editor.exe
+        # Content type for the file
+        content-type: application/vnd.debian.binary-package
+        repo-token: ${{ secrets.GITHUB_TOKEN }}
